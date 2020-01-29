@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class RoleMiddleware
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,6 @@ class RoleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        // redirect()->back()
-        // return redirect('/');
-        //this will take the user back. If this is not predecated by return then it will show 'Middleware Role' as per the route.
-
-        
-
         return $next($request);
     }
 }
