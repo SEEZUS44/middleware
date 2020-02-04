@@ -18,7 +18,8 @@ $user = Auth::user();
 
         if($user->isAdmin()){
             return "this is an admin";
-        }   
+        } 
+        return "Not an admin";  
 });
 
 Auth::routes();
