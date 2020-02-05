@@ -11,23 +11,24 @@
 |
 */
 
+Route::auth();
+Auth::routes();
+
 Route::get('/', function () {
-    // return view('welcome');
 
-$user = Auth::user();
-
-        if($user->isAdmin()){
-            return "this is an admin";
-        } 
-        return "Not an admin";  
+    return view('welcome');
 });
 
-Auth::routes();
+Route::auth();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('admin/user/roles', ['middleware'=>'role', function () {
+Route::get('admin/user/roles', ['middleware' => ['role', 'auth', 'web'], function () {
     
     return "Middleware Role";
 }]);
 //how middleware work
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+// Route::get('xannman', 'AdminController@index');

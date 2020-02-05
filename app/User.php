@@ -46,6 +46,6 @@ class User extends Authenticatable
         if($this->role->name == 'administrator'){
             return true;
         }
-        return false;
+        // return false;
     }
 }

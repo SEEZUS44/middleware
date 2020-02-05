@@ -21,8 +21,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        // SESSIONS
+        // $request->session()->put(['edwin'=>'master instructor']);
+
+        // return $request->session()->all();
+        
+        // return view('home');
+
+        // GLOBAL SESSION
+
+        session(['peter'=>'student']);
+
+        // return $request->session()->all();
+        return session('peter');
     }
 }
